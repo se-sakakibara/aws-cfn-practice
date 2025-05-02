@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+      - pip install cfn-lint
+  build:
+    commands:
+      - echo Validating CloudFormation template...
+      - aws cloudformation validate-template --template-body file://vpc.yaml
+artifacts:
+  files:
+    - vpc.yaml
+
